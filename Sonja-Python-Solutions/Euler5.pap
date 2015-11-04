@@ -1,0 +1,88 @@
+This problem was solved using Pencil and Paper!
+
+Example of smallest multiple evenly divisible by all numbers from 1 to 10:
+						
+						Factorization tree
+							  2520
+							   /\
+							 10  252
+							 /\    /\
+							2  5  12 21
+							     /\    /\
+							    3  4  3  7
+							      /\ 
+							     2  2
+
+Prime factorization: 2^3 * 3^2 * 5 * 7
+
+Now, for the actual problem at hand.
+
+1      2       3       4        5       6       7       8       9      10       11      12        13       14       15       16       17       18        19       20 
+
+1 can be eliminated.
+
+2       3       4        5       6       7       8       9      10       11      12        13       14       15       16       17       18        19       20
+               /\               /\              /\      /\      /\               /\                 /\       /\       /\                /\                 /\
+              2  2             2  3            2  4    3  3    2  5             2  6               2  7     3  5     2  8              2  9               2  10
+                                                  /\                               /\                                   /\                /\                 /\
+                                                 2  2                             2  3                                 2  4              3  3               2  5
+                                                                                                                          /\
+                                                                                                                         2  2
+
+Keep: 2, 3, 5, 7, 11, 13, 17, 19 (primes)
+
+From what's left:                                                                                                      
+
+ 4      6       8       9      10       12        14       15       16       18       20
+ /\     /\      /\      /\      /\      /\        /\       /\       /\       /\       /\
+2  2   2  3    2  4    3  3    2  5    2  6      2  7     3  5     2  8     2  9     2  10
+                  /\                      /\                          /\       /\       /\
+                 2  2                    2  3                        2  4     3  3     2  5
+                                                                        /\
+                                                                       2  2
+
+For every factor in the list of bottom factors, discard the factor if it already is in the list. If a double is reached (ex. 3x3 = 9), keep the rightmost factor as it is needed to
+complete that number. Add all factors that remain to the list before proceeding with the next factors in the list.
+
+ 4      6       8       9      10       12        14       15       16       18       20
+ /\     /\      /\      /\      /\      /\        /\       /\       /\       /\       /\
+   2              4       3               6                           8        9        10
+                  /\                      /\                          /\       /\       /\
+                    2                                                   4                  
+                                                                        /\
+                                                                          2
+
+We're left with: 2, 2, 2, and 3.
+Let's add these to the list: 2, 2, 2, 2, 3, 3, 5, 7, 11, 13, 17, 19
+And multiply the list together: 2^4 * 3^2 * 5 * 7 * 11 * 13 * 17 * 19
+=232792560
+
+And that's the answer!
+
+																	////////////////////////////////
+																	//About Pencil and Paper (PaP)//
+																	////////////////////////////////
+																	
+																	Pencil and Paper (also known as 
+																	Pencil/Paper or abbreviated as
+																	PaP) is an age-old programming 
+																	language used by millions every 
+																	day to solve a variety of conun
+																	-drums and communicate quickly
+																	and effectively. It is the
+																	single most un-limiting program
+																	-ming language in the world with
+																	extreme versatility and infinite
+																	memory storage (great runtime
+																	too!) Its extensions are most
+																	commonly .pap files and are very
+																	often used in more complex
+																	programs such as Corel Painter
+																	in order to provide a canvas to
+																	give the user the maximal 
+																	opportunity to unleash his or
+																	her creativity. More information
+																	on Pencil and Paper can be 
+																	located here: 
+																														
+														http://forum.projecteuler.net/viewtopic.php?f=49&t=2099																																		                                       
