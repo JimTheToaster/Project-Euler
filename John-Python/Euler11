@@ -1,0 +1,69 @@
+list2D = [[int(i) for i in line.split()] for line in open("Euler11Doc.txt", "r")]
+
+def getHori(x, y):
+	total = 1
+	if x + 3 < len(list2D):
+		for i in range(4):
+			total*=list2D[x+i][y]
+		return total
+	else:
+		return 1
+def getVerti(x, y):
+	total = 1
+	if y + 3 < len(list2D):
+		for i in range(4):
+			total*=list2D[x][y+i]
+		return total
+	else:
+		return 1
+def getDiag(x, y):
+	total = 1
+	if x + 3 < len(list2D) and y + 3 < len(list2D):
+		for i in range(4):
+			total*=list2D[x+i][y+i]
+		return total
+	else:
+		return 1
+def getDiag2(x, y):
+	total = 1
+	if x - 3 > 0 and y + 3 < len(list2D):
+		for i in range(4):
+			total*=list2D[x-i][y+i]
+		return total
+	else:
+		return 1
+def getMax(a, b, c, d):
+	if(a > b):
+		if(c > d):
+			if(a > c):
+				return a
+			else:
+				return c
+		else:
+			if(a > d):
+				return a
+			else:
+				return d
+	else:
+		if(c > d):
+			if(b > c):
+				return b
+			else:
+				return c
+		else:
+			if(b > d):
+				return b
+			else:
+				return d
+
+max = 0
+for i in range(len(list2D)):
+	for j in range(len(list2D)):
+		h = getHori(i, j)
+		v = getVerti(i, j)
+		d1 = getDiag(i, j)
+		d2 = getDiag2(i, j)
+		x = getMax(h, v, d1, d2)
+		if x > max:
+			max = x
+print max

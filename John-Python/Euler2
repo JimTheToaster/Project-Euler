@@ -1,0 +1,11 @@
+prev = 1
+num = 1
+holder = 0
+sum = 0
+while num < 4000000:
+	holder = prev + num
+	prev = num
+	num = holder
+	if num%2 == 0:
+		sum += num
+print sum

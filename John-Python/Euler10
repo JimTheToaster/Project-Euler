@@ -1,0 +1,10 @@
+limit = 2000000
+list = [True for i in range(limit)]
+for i in range(2, int(limit**0.5)):
+	for j in range(2*i, limit, i):
+		list[j] = False
+sum = 0
+for i in range(2, limit):
+	if list[i]:
+		sum += i
+print sum

@@ -1,0 +1,21 @@
+def isPalendrome(n):
+	myList = [0 for i in range(6)]
+	i = 0
+	while n >= 1:
+		myList[i] = n % 10
+		n /= 10
+		i = i + 1
+	if myList[0] == myList[5] and myList[1]==myList[4] and myList[2]==myList[3]:
+		return True
+	return False
+
+largest = 0
+num = 0
+for i in range(100, 999):
+	for j in range(100, 999):
+		num = i * j
+		if isPalendrome(num):
+			if num > largest:
+				largest = num
+
+print largest

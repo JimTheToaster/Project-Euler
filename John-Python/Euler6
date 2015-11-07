@@ -1,0 +1,8 @@
+sum = 0
+square = 0
+for i in range(100):
+	sum += (i + 1)**2
+for i in range(100):
+	square += i + 1
+square = square**2
+print (square - sum)

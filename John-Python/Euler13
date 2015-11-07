@@ -1,0 +1,6 @@
+list = [int(line) for line in open("Euler13Doc.txt", "r")]
+total = 0
+for i in range(len(list)):
+	total += list[i]
+answer = str(total)
+print answer[:10]
