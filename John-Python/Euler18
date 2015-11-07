@@ -1,0 +1,14 @@
+list2D = [[int(i) for i in line.split()] for line in open("Euler18Doc.txt", "r")]
+def recursiveSolve(x, y, current):
+	current += list2D[y][x]
+	num1 = current
+	num2 = current
+	if y < 14:
+		num1 = recursiveSolve(x,y+1,current)
+		num2 = recursiveSolve(x+1,y+1,current)
+	if num1 > num2:
+		return num1
+	else:
+		return num2
+
+print recursiveSolve(0,0,0)

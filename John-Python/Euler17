@@ -1,0 +1,21 @@
+tens = ["","Ten","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"]
+oneAndTeens = ["","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"]
+def convert(n):
+	ansString = ""
+	holder = n
+	if holder // 100 > 0:
+		ansString += (oneAndTeens[holder//100] + "Hundred")
+		holder = holder % 100
+		if holder != 0:
+			ansString += "And"
+	if holder // 10 > 1:
+		ansString += tens[holder//10]
+		holder = holder % 10
+ 	ansString += oneAndTeens[holder]
+ 	return ansString
+
+answer = ""
+for num in range(1,1000):
+	answer += convert(num)
+answer += "OneThousand"
+print len(answer)

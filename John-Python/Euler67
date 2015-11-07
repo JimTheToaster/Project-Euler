@@ -1,0 +1,22 @@
+grid = [[int(i) for i in line.split()] for line in open("p067_triangle.txt", "r")]
+
+def printGrid():
+	for i in grid:
+		s = ""
+		for j in i:
+			s+= str(j) + " "
+		print s
+def getLarger(x,y):
+	if x > y:
+		return x
+	else:
+		return y
+def solveGrid(x,y):
+	grid[x-1][y] += getLarger(grid[x][y], grid[x][y+1])
+def solve():
+	for i in range(len(grid)-1, 0, -1):
+		for j in range(len(grid[i])-1):
+			solveGrid(i, j)
+
+solve()
+print grid[0][0]

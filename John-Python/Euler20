@@ -1,0 +1,9 @@
+def factorial(n):
+	fact = 1
+	for x in range(n, 1, -1): fact *= x
+	return fact
+def sumOfDigits(n):
+	sum = 0
+	for ch in str(n): sum += int(ch)
+	return sum
+print sumOfDigits(factorial(100))
