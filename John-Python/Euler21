@@ -1,0 +1,16 @@
+def addFactors(n):
+	sum = 0
+	for i in range(1, n): 
+		if n%i == 0:
+			sum += i
+	return sum
+def getPair(n):
+	a = addFactors(n)
+	if n == addFactors(a): return a
+	return 0
+sum = 0
+for a in range(1,10000):
+	b = getPair(a)
+	if not b == 0 and not a == b:
+		sum += a
+print sum

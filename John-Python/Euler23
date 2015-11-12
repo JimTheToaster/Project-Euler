@@ -1,0 +1,30 @@
+listOfNums = [True for n in range(0, 28124)]
+def addFactors(n):
+	sum = 0
+	for i in range(1, n): 
+		if n%i == 0:
+			sum += i
+	return sum
+def abund(n):
+	if n < addFactors(n): return True
+	return False
+def findAbunds():
+	for i in range(1, 28124):
+		if abund(i): yield i
+def abundsAndSums():
+	lst = list(findAbunds())
+	print "Found abunds"
+	for i in range(len(lst)):
+		for j in range(i,len(lst)):
+			sum = lst[i] + lst[j]
+			if sum < 28124:
+				listOfNums[sum] = False
+			else: break
+	print "Found sums"
+def sumOfNums():
+	abundsAndSums()
+	sum = 0
+	for i in range(len(listOfNums)):
+		if listOfNums[i]: sum+=i
+	return sum
+print sumOfNums()

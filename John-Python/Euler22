@@ -1,0 +1,22 @@
+def sort(s): #Selection Sort
+	for i in range(len(s)):
+		smallest = i
+		for j in range(i+1,len(s)):
+			if s[j] < s[smallest]:
+				smallest = j
+		if not smallest == i:
+			holder = s[smallest]
+			s[smallest] = s[i]
+			s[i] = holder
+def addLetters(name):
+	total = 0
+	for ch in name:
+		total += ord(ch) - 64
+	return total
+names = [line.split() for line in open("p022_names.txt", "r")]
+sort(names)
+
+total = 0
+for index in range(0, len(names)):
+	total += (index + 1)*addLetters(names[index])
+print total

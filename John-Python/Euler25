@@ -1,0 +1,11 @@
+lst = [0,1,1,2]
+def nextNum():
+	nn = lst[len(lst)-1] + lst[len(lst)-2]
+	lst.append(nn)
+	return nn
+def ans():
+	n = 0
+	while n < 10**999:
+		n = nextNum()
+	return len(lst)-1
+print ans()
